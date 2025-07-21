@@ -1,0 +1,115 @@
+---
+title: data-collection
+teaching: 30
+exercises: 10
+---
+
+:::::::::::::::::::::::::::::::::::::: questions
+
+- Where can I access raster and satellite imagery datasets?
+- How do I download and use CORONA and Sentinel imagery?
+- What tools and platforms are commonly used for data collection in the field?
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::: objectives
+
+- Access common repositories for raster and tabular data
+- Explore methods for field data collection
+- Design a geospatial data collection workflow
+- Download and manage historical imagery datasets
+- Build a GIS project using QGIS and geopackages
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+## Introduction
+
+This episode introduces sources and strategies for collecting geospatial data from online repositories and satellite archives. Learners will explore freely available imagery sources, walk through the process of downloading CORONA and Sentinel-2 imagery, and begin building a GIS project using QGIS.
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: instructor
+
+Consider having learners work in pairs for the download tasks. If download speeds are slow, instructors may wish to prepare example datasets ahead of time.
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+## Acquiring Raster Data from Online Repositories
+
+Raster datasets such as scanned maps and satellite images are available from various sources. These can be used as contextual layers or digitized for analysis.
+
+::::::::::::::::::::::::::::::::::::: challenge
+
+### Challenge 1: Explore Raster Data Repositories
+
+Visit the following websites and locate at least one map or image relevant to your research or region of interest.
+
+- [PCL Map Collection](https://legacy.lib.utexas.edu/maps/)
+- [Trove](https://trove.nla.gov.au/)
+- [Old Maps Online](https://www.oldmapsonline.org/)
+- [USGS Earth Explorer](https://earthexplorer.usgs.gov/)
+- [ESA Copernicus Browser](https://browser.dataspace.copernicus.eu/)
+
+:::::::::::::::::::::::: solution
+
+Download an image or scanned map and save it to a folder for later use. Note whether the file is georeferenced or if georeferencing will be required.
+
+::::::::::::::::::::::::::::::::
+
+## Downloading Historical CORONA Imagery
+
+CORONA imagery provides historic satellite photos with moderate spatial resolution and high historical value for landscape and archaeological studies.
+
+Steps:
+- Visit [CAST](https://corona.cast.uark.edu/)
+- Explore available red boxes indicating mission areas
+- Download a GeoTIFF file of a CORONA scene
+- Load the file into QGIS using Raster > Add Layer
+
+::::::::::::::::::::::::::::::::::::: challenge
+
+### Challenge 2: Practice Downloading CORONA Imagery
+
+Find and download a CORONA image from CAST or EarthExplorer.
+
+:::::::::::::::::::::::: solution
+
+Open QGIS, navigate to the Raster tab, and add the downloaded CORONA GeoTIFF image.
+
+::::::::::::::::::::::::::::::::
+
+## Searching Raw CORONA Imagery via USGS EarthExplorer
+
+EarthExplorer allows you to access full CORONA archives. Login required.
+
+1. Create a polygon for your area of interest.
+2. Under Data Sets, select `Declassified Data > Declass 1 (1996)`.
+3. Filter by camera resolution: Stereo High.
+4. Explore metadata and preview images.
+5. Download imagery and extract `.tar` files using 7-Zip.
+
+::::::::::::::::::::::::::::::::::::: instructor
+
+Encourage learners to explore metadata and preview before downloading large files.
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+## Downloading Sentinel-2 Imagery from ESA Copernicus
+
+Steps:
+- Register at [ESA Copernicus](https://identity.dataspace.copernicus.eu/)
+- Use the map interface to select AOI
+- Apply filters: date range, cloud cover, Sentinel-2
+- Visualize band combinations (NDVI, true color, etc.)
+- Download and extract SAFE.ZIP files
+
+## Summary
+
+Learners now know how to access multiple online repositories for raster imagery and begin building GIS projects using these sources.
+
+::::::::::::::::::::::::::::::::::::: keypoints
+
+- Historical raster data provides valuable geospatial context
+- CORONA and Sentinel-2 imagery are accessible through public archives
+- QGIS supports raster and vector integration
+- Georeferencing is often necessary for older raster scans
+
+::::::::::::::::::::::::::::::::::::::::::::::::

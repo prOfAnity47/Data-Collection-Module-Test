@@ -8,8 +8,7 @@ exercises: 2 # exercise time in minutes
 
 - How do you write a lesson using Markdown and `{sandpaper}`?
 
-::::::::::::::::::::::::::::::::::::::::::::::::
-
+:::::::::::::::::::::::::::::::::::::::::::::::
 ::::::::::::::::::::::::::::::::::::: objectives
 
 - Explain how to use markdown with The Carpentries Workbench
