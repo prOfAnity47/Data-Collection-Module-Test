@@ -252,6 +252,18 @@
 </div>
 <!--/div.accordion-flush-->
 
+<div class="accordion accordion-flush" id="accordionFlush3">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading3">
+        <a href="data-management.html">2. Basics of Feature Class Manipulation</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
                 </div>
               </div>
             </div>
@@ -376,7 +388,7 @@ few of these sources in more detail.</p>
   Scanned Historic Maps
   </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
 <div class="accordion-body">
 <ul>
 <li><a href="https://legacy.lib.utexas.edu/maps/" class="external-link">Perry-Castañeda
@@ -397,7 +409,7 @@ Trove</a></li>
   Satellite imagery and digital elevation models (most sources require creating a user account):
   </h3>
 </button>
-<div id="collapseSpoiler2" class="accordion-collapse collapse" aria-labelledby="headingSpoiler2" data-bs-parent="#accordionSpoiler2">
+<div id="collapseSpoiler2" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler2" aria-labelledby="headingSpoiler2">
 <div class="accordion-body">
 <ul>
 <li><a href="https://earthexplorer.usgs.gov/" class="external-link">USGS Earth
@@ -744,7 +756,260 @@ any links that you are not going to use.
  -->
 </div>
 </div>
-</section></section>
+</section></section><section id="aio-data-management"><p>Content from <a href="data-management.html">Basics of Feature Class Manipulation</a></p>
+<hr>
+<p>Last updated on 2025-07-25 |
+
+        <a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/data-management.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+<div class="text-end">
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+        </div>
+<div class="overview card">
+<h2 class="card-header">Overview</h2>
+<div class="row g-0">
+<div class="col-md-4">
+<div class="card-body">
+<div class="inner">
+<h3 class="card-title">Questions</h3>
+<ul>
+<li>What are the three basic Vector data geometries?</li>
+<li>How do you create a feature dataset in QGIS?</li>
+<li>How do you decide what datapoints should be included in a
+dataset?</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<div class="inner bordered">
+<h3 class="card-title">Objectives</h3>
+<ul>
+<li>Understand the basic components of vector geometry</li>
+<li>Learn to create a data dictionary</li>
+<li>Learn the basics of data collection</li>
+<li>Learn to prepare a project file in QGIS</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section><h2 class="section-heading" id="beginner---characteristics-of-geospatial-data">Beginner - Characteristics of geospatial data<a class="anchor" aria-label="anchor" href="#beginner---characteristics-of-geospatial-data"></a>
+</h2>
+<hr class="half-width"></section><section><h2 class="section-heading" id="intermediate---design-and-create-a-new-feature-dataset-in-qgis">Intermediate - Design and create a new feature dataset in QGIS<a class="anchor" aria-label="anchor" href="#intermediate---design-and-create-a-new-feature-dataset-in-qgis"></a>
+</h2>
+<hr class="half-width">
+<p>In this section, we outline the steps for creating a basic data
+collection workflow that can be accessed and used by students,
+collaborators, or public participants to collect field data on a desktop
+GIS or on a mobile device. The following steps assume that you have
+downloaded and installed a GIS software package (e.g., QGIS) and you
+have a new project open.</p>
+<div class="section level3">
+<h3 id="design-a-layer-to-contain-your-incoming-data">Design a layer to contain your incoming data<a class="anchor" aria-label="anchor" href="#design-a-layer-to-contain-your-incoming-data"></a>
+</h3>
+<p>This is the most fundamental part of geodatabase design, and the most
+time consuming. This stage is where you will conceptualize what kind of
+vector data you need to collect to answer your research question, and
+how that translates into the spatial geometries of a GIS (e.g., points,
+lines, polygons, or all three).</p>
+<ul>
+<li><p>First, consider what objects or phenomena field collectors will
+be recording to the map, that you will want in your database to later
+query, analyze and display for your project. Make a list of each kind of
+object or phenomenon you are interested in (e.g., variables in your
+study), since each may require a different data layer.</p></li>
+<li><p>Think about what shape/geometry those objects and data points
+will be most appropriately represented as at the scale you anticipate
+analyzing and displaying them. (TIP: a building might best be
+represented as a point on a small scale map, but as a polygon on a
+larger scale map).</p></li>
+<li><p>Next, brainstorm what kind of information (or, attributes) is
+important to collect about each feature in your layer. It can be helpful
+to use graph paper, spreadsheet software, whiteboard, etc., to create a
+table listing the kinds of information you want to collect, correlated
+with variables, measurements, or units, that can describe that
+information collectable as data. These will be driven by the variable
+your research is studying, so it is worth taking the time to map out
+these variables in a table format before creating your GIS layers. As an
+example, if you studying declining butterfly populations, the types of
+information that might inform your study could include information
+organized in the following table:</p></li>
+</ul>
+<table class="table">
+<colgroup>
+<col width="48%">
+<col width="51%">
+</colgroup>
+<thead><tr class="header">
+<th>Type of useful information</th>
+<th>Example data points (attributes)</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Traits about the butterfly</td>
+<td>species, stage of development, condition</td>
+</tr>
+<tr class="even">
+<td>What time of day was it spotted?</td>
+<td>date and time</td>
+</tr>
+<tr class="odd">
+<td>What was the weather like?</td>
+<td>temperature, cloud cover, precipitation</td>
+</tr>
+<tr class="even">
+<td>Was the butterfly spotted on vegetation?</td>
+<td>plant species</td>
+</tr>
+<tr class="odd">
+<td>What was the location?</td>
+<td>park name, address, coordinates</td>
+</tr>
+<tr class="even">
+<td>Should collectors provide a general description?</td>
+<td>description, comments field</td>
+</tr>
+<tr class="odd">
+<td>Will a photograph be helpful?</td>
+<td>field photo from phone</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>Once you have brainstormed the categories of traits or attributes
+to collect about a feature or place, it’s time to translate these
+categories of data into spatial data “fields” that will form the
+attribute table for your GIS feature layer. This process can be referred
+to as building a “data dictionary”. Things to consider here: will each
+data point need a unique name or identifier code; will field collectors
+need to add measurements (if so, how precise); what kinds of
+observations will be entered in the collection form (numerical, textual,
+etc.); would pull-down menus be helpful to predefine selections
+available to collectors, should photos or attachments be added during
+data collection?</p>
+<ul>
+<li>Some data properties can be changed later as your project evolves,
+but some are more difficult to change once they are established. So here
+again, visualizing your data dictionary in a spreadsheet is helpful, as
+in the example below:</li>
+</ul>
+</li>
+</ul>
+<table class="table">
+<caption>Data Dictionary Example Worksheet (point data)</caption>
+<colgroup>
+<col width="19%">
+<col width="10%">
+<col width="9%">
+<col width="12%">
+<col width="18%">
+<col width="15%">
+<col width="15%">
+</colgroup>
+<thead><tr class="header">
+<th>Attribute Description</th>
+<th>Field Name</th>
+<th>Data type</th>
+<th>Length (text)</th>
+<th>Data entry method</th>
+<th>Allow null values</th>
+<th>Allow attachments</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Butterfly species</td>
+<td>Species</td>
+<td>String</td>
+<td>40</td>
+<td>pull-down menu</td>
+<td>no</td>
+<td>yes</td>
+</tr>
+<tr class="even">
+<td>Time of day</td>
+<td>Date_time</td>
+<td>Date</td>
+<td></td>
+<td>Choose from calendar</td>
+<td>no</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>Location of sighting</td>
+<td>Location</td>
+<td>String</td>
+<td>40</td>
+<td>Enter text</td>
+<td>yes</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>Vegetation host</td>
+<td>Vegetation</td>
+<td>string</td>
+<td>20</td>
+<td>Enter text</td>
+<td>yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section level3">
+<h3 id="prepare-a-project-file-and-editable-data-layers-in-qgis">Prepare a project file and editable data layers in QGIS<a class="anchor" aria-label="anchor" href="#prepare-a-project-file-and-editable-data-layers-in-qgis"></a>
+</h3>
+<ul>
+<li>Make sure you have downloaded and installed the <a href="https://www.qgis.org/download/" class="external-link">latest version of QGIS</a>
+</li>
+<li>Launch QGIS and create a <strong>new Project</strong> using the
+blank page icon on the top right of the screen. Use the <strong>Save
+as…</strong> command in the Project tab to save your new project in a
+convenient location.</li>
+<li>To create a new feature layer, from the <strong>Layer tab</strong>,
+select <strong>Create layer</strong>, then select <strong>New Shapefile
+Layer</strong>. We can now configure the new layer properties:
+<ol style="list-style-type: decimal">
+<li>In the <strong>New Shapefile Layer</strong> window, set the
+<strong>File name</strong> of the new shapefile in the file path to
+“Butterflies.shp”</li>
+<li>For Geometry, select <strong>Point</strong>.</li>
+<li>Use the default coordinate system, e.g., WGS84.</li>
+<li>In the <strong>New Field</strong> section, we will create attribute
+fields based on the spreadsheet you made earlier in the exercise.</li>
+</ol>
+</li>
+</ul>
+<div id="checklist1" class="callout checklist">
+<div class="callout-square">
+<i class="callout-icon" data-feather="check-square"></i>
+</div>
+<div class="callout-inner">
+<h3 class="callout-title">Checklist</h3>
+<div class="callout-content">
+<ul>
+<li>Configure the data collection form (customize the data entry
+options, online/offline use, default entries, etc.)</li>
+<li>Your new feature layer is now ready to receive new point data and
+added to a new map for visualization.</li>
+<li>Repeat the steps above to create separate feature layers for the
+line features (e.g., trails or rivers) or polygon features (e.g.,
+buildings, parks, or ponds).</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="advanced---repeat-the-above-steps-creating-an-original-data-dictionary-based-on-your-own-research-or-teaching-interests-">Advanced - Repeat the above steps, creating an original data
+dictionary based on your own research or teaching interests.<a class="anchor" aria-label="anchor" href="#advanced---repeat-the-above-steps-creating-an-original-data-dictionary-based-on-your-own-research-or-teaching-interests-"></a>
+</h2>
+<hr class="half-width">
+<!--
+Place links that you need to refer to multiple times across pages here. Delete
+any links that you are not going to use.
+ --></section></section>
 </div>
     </main>
 </div>
@@ -791,9 +1056,9 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://carpentries.github.io/workbench-template-md/aio.html",
   "identifier": "https://carpentries.github.io/workbench-template-md/aio.html",
-  "dateCreated": "2025-07-23",
-  "dateModified": "2025-07-23",
-  "datePublished": "2025-07-23"
+  "dateCreated": "2025-07-25",
+  "dateModified": "2025-07-25",
+  "datePublished": "2025-07-25"
 }
 
   </script><script>
