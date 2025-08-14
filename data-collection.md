@@ -63,7 +63,7 @@ Another important source of historic raster imagery is from declassified spy sat
 
 ### Search Georectified CORONA imagery on CAST website
 
-In many cases, CORONA imagery requires georeferencing to be used in a GIS. However, some georeferenced Corona imagery is already available to view and download on the CORONA Atlas and Referencing System, an interactive web map at the University of Arkansas’ Center for Advanced Spatial Technologies [(CAST)]((https://cast.uark.edu/research/corona.php) for downloading previously georeferenced scenes free of charge. This Beginner level tutorial will show you where to find it, and in the Intermediate level tutorial that follows you will search for a wider database of imagery on the USGS EarthExplorer site that will require georeferencing. While not all the Corona imagery available elsewhere is on it, it is nevertheless a good first place to look for Corona images in your area of interest.
+In many cases, CORONA imagery requires georeferencing to be used in a GIS. However, some georeferenced Corona imagery is already available to view and download on the CORONA Atlas and Referencing System, an interactive web map at the University of Arkansas’ Center for Advanced Spatial Technologies [(CAST)](https://cast.uark.edu/research/corona.php) for downloading previously georeferenced scenes free of charge. This Beginner level tutorial will show you where to find it, and in the Intermediate level tutorial that follows you will search for a wider database of imagery on the USGS EarthExplorer site that will require georeferencing. While not all the Corona imagery available elsewhere is on it, it is nevertheless a good first place to look for Corona images in your area of interest.
 
 - In your web browser go to https://corona.cast.uark.edu/
 - Click **Explore Atlas**
@@ -91,8 +91,11 @@ You will notice the number of visible CORONA missions listed will decrease as yo
 
 - Expand each of the missions by pressing the (+) button next to them
 - Turn off each image in turn in order to decide which is the one you want to download, and then click the blue dowload button (V) next to it
+
+![Download CORONA Imagery](fig\CORONA_Download_Contents.jpg){alt="Screenshot taken from CORONA atlas indicating with red rectangle where to download the CORONA imagery"}
+
 - Click **Download GeoTiff**, this will start the download - it is a big file so it will take some time
-- Once it has completed, move the image from the Downloads folder to a new folder (e.g. CORONA) in yoiur GIS folder
+- Once it has completed, move the image from the Downloads folder to a new folder (e.g. CORONA) in your GIS folder
 - Open QGIS and click the Open Data Source Manager button on the toolbar
 - Click the **Raster** tab, click the browse button and find your CORONA image
 - Click on it, then **Open**, **Add** and **Close**
