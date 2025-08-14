@@ -92,7 +92,7 @@ You will notice the number of visible CORONA missions listed will decrease as yo
 - Expand each of the missions by pressing the (+) button next to them
 - Turn off each image in turn in order to decide which is the one you want to download, and then click the blue dowload button (V) next to it
 
-![Download CORONA Imagery](fig\CORONA_Download_Contents.jpg){alt="Screenshot taken from CORONA atlas indicating with red rectangle where to download the CORONA imagery"}
+![Download CORONA Imagery](episodes/fig/CORONA_Download_Contents.jpg){alt="Screenshot taken from CORONA atlas indicating with red rectangle where to download the CORONA imagery"}
 
 - Click **Download GeoTiff**, this will start the download - it is a big file so it will take some time
 - Once it has completed, move the image from the Downloads folder to a new folder (e.g. CORONA) in your GIS folder
